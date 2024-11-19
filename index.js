@@ -42,14 +42,16 @@ let da = { bike: [] }; // Initialize `da` object
 
 // Fetching ride booking data from the database
 function fetchDataFromDatabase(userId) {
-  const query = `
-    SELECT r01_status, r01_pic_add, r01_pic_lat, r01_pic_lon, r01_drop_add, r01_drop_lat, r01_drop_lon,
-           p01_name, p03_vehical_name, p03_lat, p03_long, p03_vehical_number, u01_ride_otp
-      FROM r01_ride_booking
-      JOIN u01_register ON r01_ride_booking.r01_userid = u01_register.uo1_id
-      JOIN p01_partner_register ON r01_ride_booking.r01_partnerid = p01_partner_register.po1_id
-      JOIN p03_partnaer_bike ON r01_ride_booking.r01_partnerid = p03_partnaer_bike.p03_po1_id
-    WHERE r01_ride_booking.ro1_id = ${userId}`; // Use parameterized queries
+  const query = 
+   `SELECT r01_status,r01_pic_add,r01_pic_lat,r01_pic_lon,r01_drop_add,r01_drop_lat,r01_drop_lon,p01_name,p03_vehical_name,p03_lat,p03_long,p03_vehical_number,u01_ride_otp
+          FROM r01_ride_booking
+          JOIN u01_register
+            ON r01_ride_booking.r01_userid = u01_register.uo1_id
+          JOIN p01_partner_register
+            ON r01_ride_booking.r01_partnerid = p01_partner_register.po1_id
+          JOIN p03_partnaer_bike
+            ON r01_ride_booking.r01_partnerid = p03_partnaer_bike.p03_po1_id
+            AND r01_ride_booking.ro1_id = ${userId}`; // Use parameterized queries
 
   db.query(query, [userId], (err, results) => {
     if (err) {
