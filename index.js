@@ -51,7 +51,7 @@ function fetchDataFromDatabase(userId) {
             ON r01_ride_booking.r01_partnerid = p01_partner_register.po1_id
           JOIN p03_partnaer_bike
             ON r01_ride_booking.r01_partnerid = p03_partnaer_bike.p03_po1_id
-            AND r01_ride_booking.ro1_id = ${userId}`; // Use parameterized queries
+            AND r01_ride_booking.ro1_id = 486`; // Use parameterized queries
 
   db.query(query, [userId], (err, results) => {
     if (err) {
