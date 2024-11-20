@@ -65,8 +65,9 @@ setInterval(()=>{
    /// console.log(results?.[0]);
     socket.emit('serverMessage', { serverMessage: results });
 });
-},2000)
+},2000) 
 });
+//
   socket.on('user_request', (userId, requestData) => {
       console.log(`Received request from ${userId}`);
       const responseData = { message: "Here is your requested data" };
