@@ -36,7 +36,7 @@ db.connect((err) => {
   console.log("Connected to the database");
 });
 let da = { bike: [] }; // Initialize da as an object with an empty array for the bike property
-
+//
 ////////////////////////////////////////
 io.on('connection', (socket) => {
   console.log('User connected: ', socket.id);
