@@ -23,9 +23,9 @@ const corsOptions = {
 // Database configuration
 const db = mysql.createConnection({
   host: "45.113.226.179",
-  user: "admin_bikeONrentnewergt",
+  user: "bikeONrentnewergt",
   password: "n@D664z5h",
-  database: "bikeONrentnewergt"
+  database: "admin_bikeONrentnewergt"
 });
 
 // Connect to the database
